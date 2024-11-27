@@ -2,6 +2,12 @@
 
 ## Instalando
 
+### Clone o projeto:
+```
+git clone https://github.com/guisoaresdev/nodejs-simple-internet-relay-chat
+```
+
+### Instale as dependências
 ```
 npm install
 ```
