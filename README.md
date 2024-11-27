@@ -1,4 +1,4 @@
-# TCP Chat Server
+# SIRC - Simple Internet Relay Chat
 
 ## Instalando
 
