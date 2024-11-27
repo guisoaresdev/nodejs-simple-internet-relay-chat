@@ -1,11 +1,10 @@
 const net = require("node:net");
 
-let timeout = 15000; // Tempo de inatividade antes de desconectar
 const client = new net.Socket();
 client.setEncoding("utf8");
 process.stdin.setEncoding("utf8");
 
-const nickname = process.argv[2]; // Define o nickname via argumento da linha de comando
+const nickname = process.argv[2];
 
 if (!nickname) {
   console.log("Por favor, forneça um nickname ao conectar. Exemplo: node client.js <nickname>");
@@ -14,7 +13,7 @@ if (!nickname) {
 
 client.connect(8000, () => {
   console.log("Conectado ao servidor");
-  client.write(`[NICKNAME]${nickname}`); // Envia o nickname ao servidor
+  client.write(`[NICKNAME]${nickname}`);
 });
 
 process.stdin.on("data", (data) => {
@@ -31,9 +30,3 @@ client.on("end", () => {
   process.exit();
 });
 
-client.setTimeout(timeout, () => {
-  console.log("Você foi desconectado por inatividade.");
-  client.write("[TIMEOUT]\n");
-  client.end();
-  process.exit();
-});
